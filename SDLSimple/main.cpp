@@ -278,9 +278,6 @@ void process_input()
             g_player_two_movement.y = -1.0f;
         }
     }
-    paddle_wall_collision();
-    paddle_ball_collision();
-    ball_wall_collision();
 }
 
 void paddle_wall_collision() {
@@ -391,6 +388,8 @@ void update()
     g_player_two_matrix = glm::translate(g_player_two_matrix, INIT_POS_PLAYER_TWO);
     g_player_two_matrix = glm::translate(g_player_two_matrix, g_player_two_position);
     g_player_two_position += g_player_two_movement * PLAYER_SPEED * delta_time;
+    
+    paddle_wall_collision();
 
     g_ball_matrix = glm::mat4(1.0f);
     g_ball_matrix = glm::translate(g_ball_matrix, INIT_POS_BALL);
